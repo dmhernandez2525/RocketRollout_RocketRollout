@@ -4,12 +4,19 @@ import { useNode } from "@craftjs/core";
 import { Paper, FormControl, FormLabel } from "@material-ui/core";
 import ColorPicker from "material-ui-color-picker";
 
+import classnames from "classnames"
+
 export const Container = ({ background, padding, minHeight, children }) => {
   const {
     connectors: { connect, drag },
-  } = useNode();
+    selected,
+    isHover,
+  } = useNode((node) => ({
+    selected: node.events.selected,
+  }));
   return (
     <div
+    className={classnames({component:true,"component-selected": selected || isHover})}
       ref={(ref) => connect(drag(ref))}
       style={{
         margin: "5px 0",

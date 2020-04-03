@@ -1,0 +1,18 @@
+.render {
+  &__options {
+    position: fixed;
+    display: flex;
+    background-color: red;
+    height: 25px;
+    align-items: center;
+    padding: 7px;
+  }
+
+  &__icons {
+    margin: 10px;
+    img {
+      height: 20px;
+      cursor: pointer;
+    }
+  }
+}

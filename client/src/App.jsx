@@ -3,6 +3,7 @@ import "./index.css";
 import "./App.scss";
 
 import { Toolbox } from "./Components/Toolbox/Toolbox";
+import { RenderNode } from "./Components/RenderNode/RenderNode";
 
 import { Container } from "./dryComponents/Container/Container";
 import { Button } from "./dryComponents/Button/Button";
@@ -16,10 +17,13 @@ import { Topbar } from "./Components/Topbar/Topbar";
 export default function App() {
   return (
     <div style={{ margin: "0 auto", width: "800px" }}>
-      <Editor resolver={{ Card, Button, Text, Container }}>
+      <Editor
+        resolver={{ Card, Button, Text, Container }}
+        onRender={RenderNode}
+      >
         <Topbar />
         <div>
-          <div className="app__edit-wrapper">
+          <div className="app__edit-wrapper craftjs-renderer">
             <Frame className="app__build">
               <Canvas
                 is={Container}
