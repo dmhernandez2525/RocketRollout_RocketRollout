@@ -1,0 +1,15 @@
+.left-drawer {
+  height: 100%;
+  display: flex;
+  &__select-wrapper {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  &__function {
+    display: none;
+  }
+  &__function--active {
+    display: block;
+  }
+}
