@@ -1,5 +1,27 @@
 .app {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  &__main-wrapper {
+    display: flex;
+    justify-content: space-between;
+    height: calc(100vh - 70px);
+  }
+
   &__edit-wrapper {
-    height: 800px;
+    width: 800px;
+    height: 100%;
+  }
+
+  &__right-drawer {
+    width: 300px;
+    height: 100%;
+  }
+
+  &__left-drawer {
+    width: 100px;
+    height: 100%;
   }
 }
