@@ -5,23 +5,18 @@ import "./App.scss";
 import { Toolbox } from "./Components/Toolbox/Toolbox";
 import { RenderNode } from "./Components/RenderNode/RenderNode";
 
-import { Container,Button,
-  Card,
-  Text, } from "./dryComponents";
-  
-  
-  
+import { Container, Button, Card, Text } from "./dryComponents";
 
 import { SettingsPanel } from "./Components/SettingsPanel/SettingsPanel";
 import { Editor, Frame, Canvas } from "@craftjs/core";
 import { Topbar } from "./Components/Topbar/Topbar";
 
-import {DryButton} from '@comfort-order/dry'
+import { DryButton } from "@comfort-order/dry";
 
 export default function App() {
   return (
     <div style={{ margin: "0 auto", width: "800px" }}>
-      <DryButton/>
+      <DryButton />
       <Editor
         resolver={{ Card, Button, Text, Container }}
         onRender={RenderNode}

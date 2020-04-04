@@ -6,9 +6,9 @@ import {
   Button as MaterialButton,
 } from "@material-ui/core";
 import { Canvas, useEditor } from "@craftjs/core";
-import { Container,Button,
-  Card,
-  Text, } from "../../dryComponents";
+import { Container, Button, Card, Text } from "../../dryComponents";
+
+import "./Toolbox.scss";
 
 export const Toolbox = () => {
   const { connectors } = useEditor();

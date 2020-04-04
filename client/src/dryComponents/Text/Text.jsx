@@ -2,9 +2,9 @@ import React, { useState, useEffect } from "react";
 import { useNode } from "@craftjs/core";
 import ContentEditable from "react-contenteditable";
 
-import TextSettings from "./TextSettings"
+import TextSettings from "./TextSettings";
 
-import "./Text.scss"
+import "./Text.scss";
 
 const Text = ({ text, fontSize, textAlign }) => {
   const {
@@ -43,7 +43,6 @@ const Text = ({ text, fontSize, textAlign }) => {
   );
 };
 
-
 const TextDefaultProps = {
   text: "Hi",
   fontSize: 20,
@@ -56,5 +55,4 @@ Text.craft = {
   },
 };
 
-
-export default Text
+export default Text;

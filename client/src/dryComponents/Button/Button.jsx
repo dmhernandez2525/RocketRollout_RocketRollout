@@ -1,10 +1,8 @@
 import React from "react";
-import {
-  Button as MaterialButton,
-} from "@material-ui/core";
+import { Button as MaterialButton } from "@material-ui/core";
 import { useNode } from "@craftjs/core";
 
-import ButtonSettings from "./ButtonSettings"
+import ButtonSettings from "./ButtonSettings";
 
 import "./Button.scss";
 
@@ -25,8 +23,6 @@ const Button = ({ size, variant, color, text }) => {
   );
 };
 
-
-
 const ButtonDefaultProps = {
   size: "small",
   variant: "contained",
@@ -41,4 +37,4 @@ Button.craft = {
   },
 };
 
-export default  Button
+export default Button;

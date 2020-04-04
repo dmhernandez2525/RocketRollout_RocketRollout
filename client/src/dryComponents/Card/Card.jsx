@@ -1,9 +1,9 @@
 import React from "react";
 import { useNode } from "@craftjs/core";
 
-import CardSettings from "./CardSettings"
+import CardSettings from "./CardSettings";
 
-import "./Card.scss"
+import "./Card.scss";
 
 const Card = ({ background, padding = 20, children }) => {
   const {
@@ -20,8 +20,6 @@ const Card = ({ background, padding = 20, children }) => {
   );
 };
 
-
-
 const cardDefaultProps = {
   background: "#ffffff",
   padding: 3,
@@ -34,4 +32,4 @@ Card.craft = {
   },
 };
 
-export default  Card
+export default Card;

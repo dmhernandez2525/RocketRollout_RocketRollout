@@ -1,10 +1,10 @@
 import React from "react";
 import { useNode } from "@craftjs/core";
-import classnames from "classnames"
+import classnames from "classnames";
 
-import ContainerSettings from "./ContainerSettings"
+import ContainerSettings from "./ContainerSettings";
 
-import './Container.scss'
+import "./Container.scss";
 
 const Container = ({ background, padding, minHeight, children }) => {
   const {
@@ -16,7 +16,10 @@ const Container = ({ background, padding, minHeight, children }) => {
   }));
   return (
     <div
-    className={classnames({component:true,"component-selected": selected || isHover})}
+      className={classnames({
+        component: true,
+        "component-selected": selected || isHover,
+      })}
       ref={(ref) => connect(drag(ref))}
       style={{
         margin: "5px 0",
@@ -30,8 +33,6 @@ const Container = ({ background, padding, minHeight, children }) => {
   );
 };
 
-
-
 const ContainerDefaultProps = {
   background: "#ffffff",
   padding: 3,
@@ -44,5 +45,4 @@ Container.craft = {
   },
 };
 
-
-export default Container
+export default Container;
