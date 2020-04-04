@@ -5,10 +5,12 @@ import "./App.scss";
 import { Toolbox } from "./Components/Toolbox/Toolbox";
 import { RenderNode } from "./Components/RenderNode/RenderNode";
 
-import { Container } from "./dryComponents/Container/Container";
-import { Button } from "./dryComponents/Button/Button";
-import { Card } from "./dryComponents/Card/Card";
-import { Text } from "./dryComponents/Text/Text";
+import { Container,Button,
+  Card,
+  Text, } from "./dryComponents";
+  
+  
+  
 
 import { SettingsPanel } from "./Components/SettingsPanel/SettingsPanel";
 import { Editor, Frame, Canvas } from "@craftjs/core";
