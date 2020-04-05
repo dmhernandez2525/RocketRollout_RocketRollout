@@ -69,18 +69,18 @@ export const RenderNode = ({ render }) => {
 
   return (
     <>
-      {isHover || isActive
+      {isActive
         ? ReactDOM.createPortal(
             <div
               ref={currentRef}
               className="render__options"
               style={{
                 left: getPos(dom).left,
-                top: getPos(dom).top,
+                top: `${dom.offsetTop - 19}px`,
                 zIndex: 9999,
               }}
             >
-              <h6 className="render__icons">{name}</h6>
+              <span className="render__icons">{name}</span>
               {moveable ? (
                 <div className="render__icons" ref={drag}>
                   <img src="/icons/move.svg" alt="" />
