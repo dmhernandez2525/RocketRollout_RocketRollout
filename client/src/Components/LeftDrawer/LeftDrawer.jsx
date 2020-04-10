@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Toolbox } from "../Toolbox/Toolbox";
-import  AppSettings  from "../AppSettings/AppSettings";
+import AppSettings from "../AppSettings/AppSettings";
 import classnames from "classnames";
 
 import "./LeftDrawer.scss";
