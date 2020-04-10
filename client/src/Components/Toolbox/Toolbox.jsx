@@ -1,7 +1,7 @@
 import React from "react";
 import { Button as MaterialButton } from "@material-ui/core";
 import { Canvas, useEditor } from "@craftjs/core";
-import { Container, Button, Card, Text } from "../../dryComponents";
+import { Container, Button, Card, Text, Header1 } from "../../dryComponents";
 
 import "./Toolbox.scss";
 
@@ -12,42 +12,52 @@ export const Toolbox = () => {
     <div className="toolbox">
       <div>Drag to add</div>
       <div>
-        <MaterialButton
+        <button
           ref={(ref) =>
             connectors.create(ref, <Button text="Click me" size="small" />)
           }
           variant="contained"
         >
           Button
-        </MaterialButton>
+        </button>
       </div>
       <div>
-        <MaterialButton
+        <button
           ref={(ref) => connectors.create(ref, <Text text="Hi world" />)}
           variant="contained"
         >
           Text
-        </MaterialButton>
+        </button>
       </div>
       <div>
-        <MaterialButton
+        <button
           ref={(ref) =>
             connectors.create(ref, <Canvas is={Container} padding={20} />)
           }
           variant="contained"
         >
           Container
-        </MaterialButton>
+        </button>
       </div>
       <div>
-        <MaterialButton
+        <button
+          ref={(ref) =>
+            connectors.create(ref, <Canvas is={Header1} padding={20} />)
+          }
+          variant="contained"
+        >
+          Header1
+        </button>
+      </div>
+      <div>
+        <button
           ref={(ref) =>
             connectors.create(ref, <Canvas is={Card} padding={20} />)
           }
           variant="contained"
         >
           Card
-        </MaterialButton>
+        </button>
       </div>
     </div>
   );

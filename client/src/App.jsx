@@ -2,11 +2,12 @@ import React from "react";
 import { RenderNode } from "./Components/RenderNode/RenderNode";
 import { Editor, Frame, Canvas } from "@craftjs/core";
 
-import { Container, Button, Card, Text } from "./dryComponents";
+import { Container, Button, Card, Text, Header1 } from "./dryComponents";
 import LeftDrawer from "./Components/LeftDrawer/LeftDrawer";
 import RightDrawer from "./Components/RightDrawer/RightDrawer";
 import { Topbar } from "./Components/Topbar/Topbar";
 
+import "../node_modules/@comfort-order/dry/dist/index.css";
 import "./index.css";
 import "./App.scss";
 
@@ -14,7 +15,7 @@ const App = () => {
   return (
     <div className="app">
       <Editor
-        resolver={{ Card, Button, Text, Container }}
+        resolver={{ Card, Button, Text, Container, Header1 }}
         onRender={RenderNode}
       >
         <div>

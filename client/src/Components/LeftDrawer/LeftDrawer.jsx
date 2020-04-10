@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { Toolbox } from "../Toolbox/Toolbox";
+import  AppSettings  from "../AppSettings/AppSettings";
 import classnames from "classnames";
 
 import "./LeftDrawer.scss";
 
 const LeftDrawer = () => {
-  const [select, setSelect] = useState("none");
+  const [select, setSelect] = useState("toolbox");
 
   return (
     <div className="left-drawer">
@@ -27,7 +28,7 @@ const LeftDrawer = () => {
           "left-drawer__function--active": select === "make",
         })}
       >
-        <Toolbox />
+        <AppSettings />
       </div>
     </div>
   );

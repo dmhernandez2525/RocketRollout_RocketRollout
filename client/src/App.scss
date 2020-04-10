@@ -14,15 +14,21 @@
     width: 800px;
     height: 100%;
     margin-left: 8%;
+    overflow: scroll;
   }
 
   &__right-drawer {
-    width: 250px;
+    width: 350px;
     height: 100%;
+    background: darkorange;
+    overflow: scroll;
   }
 
   &__left-drawer {
     width: 100px;
     height: 100%;
   }
+}
+body{
+  margin: 0;
 }

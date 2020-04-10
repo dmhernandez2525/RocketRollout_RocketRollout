@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@comfort-order/dry": "^1.0.2",
+    "@comfort-order/dry": "^1.0.3",
     "@craftjs/core": "0.1.0-beta.4",
     "@material-ui/core": "^4.9.8",
     "@testing-library/jest-dom": "^4.2.4",
