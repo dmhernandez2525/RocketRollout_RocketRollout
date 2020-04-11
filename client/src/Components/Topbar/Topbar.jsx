@@ -28,7 +28,7 @@ export const Topbar = ({ onLoadState }) => {
 
   return (
     <div className="topbar">
-      <div>
+      <div className="topbar__disable-wrapper">
         <FormControlLabel
           className="enable-disable-toggle"
           control={
@@ -42,7 +42,7 @@ export const Topbar = ({ onLoadState }) => {
           label="Enable"
         />
       </div>
-      <div>
+      <div className="topbar__button-wrapper">
         <MaterialButton
           className="copy-state-btn"
           size="small"

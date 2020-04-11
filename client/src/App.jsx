@@ -15,6 +15,10 @@ const App = () => {
   return (
     <div className="app">
       <Editor
+        indicator={{
+          success: "#2d9d78",
+          error: "#e34850",
+        }}
         resolver={{ Card, Button, Text, Container, Header1 }}
         onRender={RenderNode}
       >
@@ -26,10 +30,10 @@ const App = () => {
             <LeftDrawer />
           </div>
           <div className="app__edit-wrapper craftjs-renderer">
-            <Frame className="app__build">
+            <Frame>
               <Canvas
+                id="rootNode"
                 is={Container}
-                width="100%"
                 minHeight="800px"
                 padding={5}
                 background="#eeeeee"

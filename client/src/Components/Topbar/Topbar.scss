@@ -1,7 +1,20 @@
+@import "../../colors.scss";
+
 .topbar {
-  height: 70px;
   display: flex;
+
+  height: 70px;
+
+  background: $logo3;
+
   justify-content: space-between;
   align-items: center;
-  background: aqua;
+
+  &__disable-wrapper {
+    margin-left: 20px;
+  }
+
+  &__button-wrapper {
+    margin-right: 20px;
+  }
 }

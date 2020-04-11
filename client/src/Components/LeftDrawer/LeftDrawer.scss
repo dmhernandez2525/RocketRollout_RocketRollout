@@ -1,3 +1,5 @@
+@import "../../colors.scss";
+
 .left-drawer {
   height: 100%;
   display: flex;
@@ -12,7 +14,7 @@
   }
   &__function--active {
     display: block;
-    background: black;
+    background: $logo2;
     width: 250px;
   }
 }

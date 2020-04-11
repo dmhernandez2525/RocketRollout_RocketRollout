@@ -27,6 +27,11 @@ export const RenderNode = ({ render }) => {
     parent: node.data.parent,
   }));
 
+  const {
+    query: { node },
+  } = useEditor();
+  const isRoot = node(id).isRoot();
+
   const currentRef = useRef();
 
   useEffect(() => {
@@ -68,8 +73,8 @@ export const RenderNode = ({ render }) => {
   }, [scroll]);
 
   return (
-    <>
-      {isActive
+    <div>
+      {isActive && !isRoot
         ? ReactDOM.createPortal(
             <div
               ref={currentRef}
@@ -103,6 +108,6 @@ export const RenderNode = ({ render }) => {
           )
         : null}
       {render}
-    </>
+    </div>
   );
 };

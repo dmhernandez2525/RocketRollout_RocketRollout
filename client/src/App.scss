@@ -1,3 +1,5 @@
+@import "./colors.scss";
+
 .app {
   height: 100vh;
   display: flex;
@@ -14,12 +16,26 @@
     height: 100%;
     overflow: scroll;
     width: calc(100vw - 600px);
+    display: flex;
+    justify-content: center;
+    background: #fff;
+
+    div {
+      &:first-child {
+        width: 90%;
+      }
+      div {
+        &:first-child {
+          width: initial;
+        }
+      }
+    }
   }
 
   &__right-drawer {
     width: 300px;
     height: 100%;
-    background: darkorange;
+    background: $logo4;
     overflow: scroll;
   }
 
