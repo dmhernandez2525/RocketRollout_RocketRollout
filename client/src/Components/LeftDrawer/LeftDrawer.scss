@@ -8,13 +8,14 @@
     display: flex;
     flex-direction: column;
     width: 50px;
+    // background: $logo2;
   }
   &__function {
     display: none;
   }
   &__function--active {
     display: block;
-    background: $logo2;
+    background: $logo4;
     width: 250px;
   }
 }

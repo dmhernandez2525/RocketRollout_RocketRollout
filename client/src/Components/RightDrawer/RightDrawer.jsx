@@ -6,7 +6,7 @@ import "./RightDrawer.scss";
 
 const RightDrawer = () => {
   return (
-    <div>
+    <div className="rDrawer">
       <SettingsPanel />
     </div>
   );

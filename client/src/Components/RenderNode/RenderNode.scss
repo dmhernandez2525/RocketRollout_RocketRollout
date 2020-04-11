@@ -1,18 +1,23 @@
+@import "../../colors.scss";
+
 .render {
   &__options {
     position: fixed;
     display: flex;
-    background-color: red;
-    height: 5px;
+    background-color: black;
+    height: 0px;
     width: fit-content;
     align-items: center;
-    padding: 7px;
+    padding: 10px;
   }
 
   &__icons {
-    margin: 1px;
+    margin: 2px;
+    background-color: #f50057;
+    height: 12px;
+    font-size: 11px;
     img {
-      height: 20px;
+      height: 11px;
       cursor: pointer;
     }
   }

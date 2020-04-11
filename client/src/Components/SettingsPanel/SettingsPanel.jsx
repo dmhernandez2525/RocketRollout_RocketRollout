@@ -31,9 +31,7 @@ export const SettingsPanel = () => {
           <div>
             <div>
               <div>
-                <span>Selected</span>
-              </div>
-              <div>
+                <span>Selected Component: </span>
                 <span> {selected.name}</span>
               </div>
             </div>
