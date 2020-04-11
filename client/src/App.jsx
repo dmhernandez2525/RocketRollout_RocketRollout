@@ -29,6 +29,7 @@ const App = () => {
             <Frame className="app__build">
               <Canvas
                 is={Container}
+                width="100%"
                 minHeight="800px"
                 padding={5}
                 background="#eeeeee"

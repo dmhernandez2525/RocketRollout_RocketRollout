@@ -11,21 +11,19 @@
   }
 
   &__edit-wrapper {
-    width: 800px;
     height: 100%;
-    margin-left: 8%;
     overflow: scroll;
+    width: calc(100vw - 600px);
   }
 
   &__right-drawer {
-    width: 350px;
+    width: 300px;
     height: 100%;
     background: darkorange;
     overflow: scroll;
   }
 
   &__left-drawer {
-    width: 100px;
     height: 100%;
   }
 }
