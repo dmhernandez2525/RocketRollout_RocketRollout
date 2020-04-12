@@ -1,6 +1,8 @@
 import React from "react";
 import { useNode } from "@craftjs/core";
-import { Slider, FormControl, FormLabel } from "@material-ui/core";
+import { Slider} from "@material-ui/core";
+
+import ComponentSpecific from "../../StylingSettings/ComponentSpecific/ComponentSpecific"
 
 import "./Text.scss";
 
@@ -10,10 +12,9 @@ const TextSettings = () => {
     fontSize: node.data.props.fontSize,
   }));
 
-  return (
-    <>
-      <FormControl size="small" component="fieldset">
-        <FormLabel component="legend">Font size</FormLabel>
+  const componentSpecific = (
+        <div>
+        <label>Font size</label>
         <Slider
           value={fontSize || 7}
           step={7}
@@ -23,8 +24,15 @@ const TextSettings = () => {
             setProp((props) => (props.fontSize = value));
           }}
         />
-      </FormControl>
-    </>
+    </div>
+  )
+
+  return (
+    <div>
+      <ComponentSpecific change={componentSpecific} name="Text"/>
+
+    </div>
+
   );
 };
 
