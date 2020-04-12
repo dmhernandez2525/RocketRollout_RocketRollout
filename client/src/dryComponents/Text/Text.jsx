@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { useNode } from "@craftjs/core";
 import ContentEditable from "react-contenteditable";
-import { Slider, FormControl, FormLabel } from "@material-ui/core";
 
-export const Text = ({ text, fontSize, textAlign }) => {
+import TextSettings from "./TextSettings";
+
+import "./Text.scss";
+
+const Text = ({ text, fontSize, textAlign }) => {
   const {
     connectors: { connect, drag },
     selected,
@@ -40,31 +43,7 @@ export const Text = ({ text, fontSize, textAlign }) => {
   );
 };
 
-const TextSettings = () => {
-  const { setProp, fontSize } = useNode((node) => ({
-    text: node.data.props.text,
-    fontSize: node.data.props.fontSize,
-  }));
-
-  return (
-    <>
-      <FormControl size="small" component="fieldset">
-        <FormLabel component="legend">Font size</FormLabel>
-        <Slider
-          value={fontSize || 7}
-          step={7}
-          min={1}
-          max={50}
-          onChange={(_, value) => {
-            setProp((props) => (props.fontSize = value));
-          }}
-        />
-      </FormControl>
-    </>
-  );
-};
-
-export const TextDefaultProps = {
+const TextDefaultProps = {
   text: "Hi",
   fontSize: 20,
 };
@@ -75,3 +54,5 @@ Text.craft = {
     settings: TextSettings,
   },
 };
+
+export default Text;

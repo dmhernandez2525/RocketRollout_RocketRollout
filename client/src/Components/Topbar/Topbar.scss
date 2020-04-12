@@ -1,0 +1,21 @@
+@import "../../colors.scss";
+
+.topbar {
+  display: flex;
+
+  height: 70px;
+
+  background: $logo3;
+
+  justify-content: space-between;
+  align-items: center;
+
+  &__disable-wrapper {
+    margin-left: 20px;
+    color: #f50057;
+  }
+
+  &__button-wrapper {
+    margin-right: 20px;
+  }
+}

@@ -1,0 +1,24 @@
+@import "../../colors.scss";
+
+.render {
+  &__options {
+    position: fixed;
+    display: flex;
+    background-color: black;
+    height: 0px;
+    width: fit-content;
+    align-items: center;
+    padding: 10px;
+  }
+
+  &__icons {
+    margin: 2px;
+    background-color: #f50057;
+    height: 12px;
+    font-size: 11px;
+    img {
+      height: 11px;
+      cursor: pointer;
+    }
+  }
+}

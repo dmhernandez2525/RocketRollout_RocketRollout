@@ -1,0 +1,17 @@
+.parse {
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__input {
+    width: 80%;
+    input {
+      width: 90%;
+    }
+  }
+
+  &__button {
+    margin-top: 25px;
+  }
+}

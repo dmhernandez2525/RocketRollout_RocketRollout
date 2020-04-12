@@ -1,15 +1,25 @@
 import React from "react";
-import { Slider } from "@material-ui/core";
 import { useNode } from "@craftjs/core";
-import { Paper, FormControl, FormLabel } from "@material-ui/core";
-import ColorPicker from "material-ui-color-picker";
+import classnames from "classnames";
 
-export const Container = ({ background, padding, minHeight, children }) => {
+import ContainerSettings from "./ContainerSettings";
+
+import "./Container.scss";
+
+const Container = ({ background, padding, minHeight, children }) => {
   const {
     connectors: { connect, drag },
-  } = useNode();
+    selected,
+    isHover,
+  } = useNode((node) => ({
+    selected: node.events.selected,
+  }));
   return (
     <div
+      className={classnames({
+        component: true,
+        "component-selected": selected || isHover,
+      })}
       ref={(ref) => connect(drag(ref))}
       style={{
         margin: "5px 0",
@@ -23,35 +33,7 @@ export const Container = ({ background, padding, minHeight, children }) => {
   );
 };
 
-export const ContainerSettings = () => {
-  const { background, padding, setProp } = useNode((node) => ({
-    background: node.data.props.background,
-    padding: node.data.props.padding,
-  }));
-
-  return (
-    <div>
-      <FormControl fullWidth={true} margin="normal" component="fieldset">
-        <FormLabel component="legend">Background</FormLabel>
-        <ColorPicker
-          value={background}
-          onChange={(color) => {
-            setProp((props) => (props.background = color));
-          }}
-        />
-      </FormControl>
-      <FormControl fullWidth={true} margin="normal" component="fieldset">
-        <FormLabel component="legend">Padding</FormLabel>
-        <Slider
-          defaultValue={padding}
-          onChange={(_, value) => setProp((props) => (props.padding = value))}
-        />
-      </FormControl>
-    </div>
-  );
-};
-
-export const ContainerDefaultProps = {
+const ContainerDefaultProps = {
   background: "#ffffff",
   padding: 3,
 };
@@ -62,3 +44,5 @@ Container.craft = {
     settings: ContainerSettings,
   },
 };
+
+export default Container;

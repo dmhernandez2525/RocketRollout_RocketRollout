@@ -1,5 +1,48 @@
+@import "./colors.scss";
+
 .app {
-  &__edit-wrapper {
-    height: 800px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  &__main-wrapper {
+    display: flex;
+    justify-content: space-between;
+    height: calc(100vh - 70px);
   }
+
+  &__edit-wrapper {
+    height: 100%;
+    overflow: scroll;
+    width: calc(100vw - 600px);
+    display: flex;
+    justify-content: center;
+    background: #fff;
+
+    div {
+      &:first-child {
+        width: 90%;
+      }
+      div {
+        &:first-child {
+          width: initial;
+        }
+      }
+    }
+  }
+
+  &__right-drawer {
+    width: 300px;
+    height: 100%;
+    background: $logo4;
+    overflow: scroll;
+  }
+
+  &__left-drawer {
+    height: 100%;
+  }
+}
+body {
+  margin: 0;
 }

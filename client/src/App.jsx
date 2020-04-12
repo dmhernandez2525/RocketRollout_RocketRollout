@@ -1,27 +1,38 @@
 import React from "react";
+import { RenderNode } from "./Components/RenderNode/RenderNode";
+import { Editor, Frame, Canvas } from "@craftjs/core";
+
+import { Container, Button, Card, Text, Header1 } from "./dryComponents";
+import LeftDrawer from "./Components/LeftDrawer/LeftDrawer";
+import RightDrawer from "./Components/RightDrawer/RightDrawer";
+import { Topbar } from "./Components/Topbar/Topbar";
+
+import "../node_modules/@comfort-order/dry/dist/index.css";
 import "./index.css";
 import "./App.scss";
 
-import { Toolbox } from "./Components/Toolbox/Toolbox";
-
-import { Container } from "./dryComponents/Container/Container";
-import { Button } from "./dryComponents/Button/Button";
-import { Card } from "./dryComponents/Card/Card";
-import { Text } from "./dryComponents/Text/Text";
-
-import { SettingsPanel } from "./Components/SettingsPanel/SettingsPanel";
-import { Editor, Frame, Canvas } from "@craftjs/core";
-import { Topbar } from "./Components/Topbar/Topbar";
-
-export default function App() {
+const App = () => {
   return (
-    <div style={{ margin: "0 auto", width: "800px" }}>
-      <Editor resolver={{ Card, Button, Text, Container }}>
-        <Topbar />
+    <div className="app">
+      <Editor
+        indicator={{
+          success: "#2d9d78",
+          error: "#e34850",
+        }}
+        resolver={{ Card, Button, Text, Container, Header1 }}
+        onRender={RenderNode}
+      >
         <div>
-          <div className="app__edit-wrapper">
-            <Frame className="app__build">
+          <Topbar />
+        </div>
+        <div className="app__main-wrapper">
+          <div className="app__left-drawer">
+            <LeftDrawer />
+          </div>
+          <div className="app__edit-wrapper craftjs-renderer">
+            <Frame>
               <Canvas
+                id="rootNode"
                 is={Container}
                 minHeight="800px"
                 padding={5}
@@ -29,12 +40,12 @@ export default function App() {
               ></Canvas>
             </Frame>
           </div>
-          <div>
-            <Toolbox />
-            <SettingsPanel />
+          <div className="app__right-drawer">
+            <RightDrawer />
           </div>
         </div>
       </Editor>
     </div>
   );
-}
+};
+export default App;

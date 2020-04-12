@@ -1,11 +1,11 @@
 import React from "react";
+import { Header1 } from "@comfort-order/dry";
 import { useNode } from "@craftjs/core";
+import Header1Settings from "./Header1Settings";
 
-import CardSettings from "./CardSettings";
+import "./Header1.scss";
 
-import "./Card.scss";
-
-const Card = ({ background, padding = 20, children }) => {
+const Header = ({ background, padding = 20, children }) => {
   const {
     connectors: { connect, drag },
   } = useNode();
@@ -15,21 +15,20 @@ const Card = ({ background, padding = 20, children }) => {
       ref={(ref) => connect(drag(ref))}
       style={{ margin: "5px 0", background, padding: `${padding}px` }}
     >
-      {children}
+      <Header1 />
     </div>
   );
 };
 
-const cardDefaultProps = {
+const header1DefaultProps = {
   background: "#ffffff",
   padding: 3,
 };
 
-Card.craft = {
-  defaultProps: cardDefaultProps,
+Header.craft = {
+  defaultProps: header1DefaultProps,
   related: {
-    settings: CardSettings,
+    settings: Header1Settings,
   },
 };
-
-export default Card;
+export default Header;
