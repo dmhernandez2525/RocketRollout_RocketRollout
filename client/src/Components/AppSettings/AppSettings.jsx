@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useEditor } from "@craftjs/core";
+import { Input, DryButton } from "@comfort-order/dry";
 
 import { makeApp } from "../../utils/apiCalls";
 
@@ -17,20 +18,26 @@ const AppSettings = () => {
   };
   return (
     <div className="parse">
-      <input
+      <Input
+        label="Page Name"
+        placeholder="Page Name"
         type="text"
+        className="parse__input"
         value={componentName}
         onChange={(e) => setComponentName(e.target.value)}
       />
-      <input
+      <Input
+        label="App Name"
+        placeholder="App Name"
         type="text"
+        className="parse__input"
         value={applicationName}
         onChange={(e) => setApplicationName(e.target.value)}
       />
-      <input
+      <DryButton
         onClick={handleAppServerCall}
-        type="submit"
-        value="Make Applaction"
+        text="Make Applaction"
+        className="btn btn-animated parse__button "
       />
     </div>
   );
