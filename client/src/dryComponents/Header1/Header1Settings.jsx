@@ -3,6 +3,9 @@ import { Slider } from "@material-ui/core";
 import { FormControl, FormLabel } from "@material-ui/core";
 import ColorPicker from "material-ui-color-picker";
 
+import ComponentSpecific from "../../StylingSettings/@ComponentSpecific/ComponentSpecific";
+import Default from "../../StylingSettings/@Default/Default";
+
 import { useNode } from "@craftjs/core";
 
 import "./Header1.scss";
@@ -13,7 +16,7 @@ const Header1Settings = () => {
     padding: node.data.props.padding,
   }));
 
-  return (
+  const componentSpecific = (
     <div>
       <FormControl fullWidth={true} margin="normal" component="fieldset">
         <FormLabel component="legend">Background</FormLabel>
@@ -31,6 +34,13 @@ const Header1Settings = () => {
           onChange={(_, value) => setProp((props) => (props.padding = value))}
         />
       </FormControl>
+    </div>
+  );
+  
+  return (
+    <div>
+      <ComponentSpecific change={componentSpecific} name="Header1" />
+      <Default />
     </div>
   );
 };

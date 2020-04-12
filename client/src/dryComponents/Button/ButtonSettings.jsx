@@ -8,6 +8,9 @@ import {
 } from "@material-ui/core";
 import { useNode } from "@craftjs/core";
 
+import ComponentSpecific from "../../StylingSettings/@ComponentSpecific/ComponentSpecific";
+import Default from "../../StylingSettings/@Default/Default";
+
 import "./Button.scss";
 
 const ButtonSettings = () => {
@@ -15,7 +18,7 @@ const ButtonSettings = () => {
     props: node.data.props,
   }));
 
-  return (
+  const componentSpecific =  (
     <div>
       <FormControl size="small" component="fieldset">
         <FormLabel component="legend">Size</FormLabel>
@@ -86,6 +89,13 @@ const ButtonSettings = () => {
           />
         </RadioGroup>
       </FormControl>
+    </div>
+  );
+
+  return (
+    <div>
+      <ComponentSpecific change={componentSpecific} name="Button" />
+      <Default />
     </div>
   );
 };

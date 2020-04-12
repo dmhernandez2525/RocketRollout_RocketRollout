@@ -4,6 +4,9 @@ import { useNode, useEditor } from "@craftjs/core";
 import { FormControl, FormLabel } from "@material-ui/core";
 import ColorPicker from "material-ui-color-picker";
 
+import ComponentSpecific from "../../StylingSettings/@ComponentSpecific/ComponentSpecific";
+import Default from "../../StylingSettings/@Default/Default";
+
 import "./Container.scss";
 
 const ContainerSettings = () => {
@@ -18,12 +21,13 @@ const ContainerSettings = () => {
   const isRoot = node(id).isRoot();
 
   let display;
+  let componentSpecific;
   if (isRoot) {
     display = (
       <div>this is the root container, please select a child component</div>
     );
   } else {
-    display = (
+    componentSpecific = (
       <div>
         <FormControl fullWidth={true} margin="normal" component="fieldset">
           <FormLabel component="legend">Background</FormLabel>
@@ -43,8 +47,14 @@ const ContainerSettings = () => {
         </FormControl>
       </div>
     );
+    display = (
+    <div>
+      <ComponentSpecific change={componentSpecific} name="Container" />
+      <Default />
+    </div>)
   }
 
+ 
   return display;
 };
 

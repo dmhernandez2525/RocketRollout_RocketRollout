@@ -34,3 +34,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ### Removed
 - 
+
+## [0.2.1] 
+### Added
+- Container: ComponentSpecific and Default settings 
+- Button: ComponentSpecific and Default settings 
+- Card: ComponentSpecific and Default settings 
+- Header1: ComponentSpecific and Default settings 
+### Changed
+-
+
+### Removed
+- 
