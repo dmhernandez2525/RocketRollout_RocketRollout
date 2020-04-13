@@ -18,7 +18,7 @@ const ButtonSettings = () => {
     props: node.data.props,
   }));
 
-  const componentSpecific =  (
+  const componentSpecific = (
     <div>
       <FormControl size="small" component="fieldset">
         <FormLabel component="legend">Size</FormLabel>

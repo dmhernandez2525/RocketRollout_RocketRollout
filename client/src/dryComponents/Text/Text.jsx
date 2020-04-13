@@ -6,7 +6,26 @@ import TextSettings from "./TextSettings";
 
 import "./Text.scss";
 
-const Text = ({ text, fontSize, textAlign }) => {
+const Text = ({
+  text,
+  fontSize,
+  textAlign,
+  display,
+  flexDirection,
+  justifyContent,
+  alignItems,
+  minHeight,
+  maxHeight,
+  height,
+  minWidth,
+  maxWidth,
+  width,
+  background,
+  color,
+  margin,
+  padding,
+  className,
+}) => {
   const {
     connectors: { connect, drag },
     selected,
@@ -15,6 +34,24 @@ const Text = ({ text, fontSize, textAlign }) => {
     selected: state.events.selected,
     dragged: state.events.dragged,
   }));
+
+  const inputStyles = {
+    fontSize: `${fontSize}px`,
+    textAlign,
+    display,
+    flexDirection,
+    justifyContent,
+    alignItems,
+    minHeight,
+    maxHeight,
+    height,
+    minWidth,
+    maxWidth,
+    width,
+    background,
+    margin: `${margin}px`,
+    padding: `${padding}px`,
+  };
 
   const [editable, setEditable] = useState(false);
 
@@ -37,7 +74,7 @@ const Text = ({ text, fontSize, textAlign }) => {
           )
         }
         tagName="p"
-        style={{ fontSize: `${fontSize}px`, textAlign }}
+        style={inputStyles}
       />
     </div>
   );

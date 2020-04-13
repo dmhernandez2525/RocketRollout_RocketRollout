@@ -5,16 +5,46 @@ import Header1Settings from "./Header1Settings";
 
 import "./Header1.scss";
 
-const Header = ({ background, padding = 20, children }) => {
+const Header = ({
+  display,
+  flexDirection,
+  justifyContent,
+  alignItems,
+  minHeight,
+  maxHeight,
+  height,
+  minWidth,
+  maxWidth,
+  width,
+  background,
+  color,
+  margin,
+  padding,
+  className,
+  children,
+}) => {
   const {
     connectors: { connect, drag },
   } = useNode();
 
+  const inputStyles = {
+    display,
+    flexDirection,
+    justifyContent,
+    alignItems,
+    minHeight,
+    maxHeight,
+    height,
+    minWidth,
+    maxWidth,
+    width,
+    background,
+    margin: `${margin}px`,
+    padding: `${padding}px`,
+  };
+
   return (
-    <div
-      ref={(ref) => connect(drag(ref))}
-      style={{ margin: "5px 0", background, padding: `${padding}px` }}
-    >
+    <div ref={(ref) => connect(drag(ref))} style={inputStyles}>
       <Header1 />
     </div>
   );

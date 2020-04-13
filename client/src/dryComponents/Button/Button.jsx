@@ -6,14 +6,49 @@ import ButtonSettings from "./ButtonSettings";
 
 import "./Button.scss";
 
-const Button = ({ size, variant, color, text }) => {
+const Button = ({
+  size,
+  variant,
+  color,
+  text,
+  display,
+  flexDirection,
+  justifyContent,
+  alignItems,
+  minHeight,
+  maxHeight,
+  height,
+  minWidth,
+  maxWidth,
+  width,
+  background,
+  margin,
+  padding,
+  className,
+}) => {
   const {
     connectors: { connect, drag },
   } = useNode();
+
+  const inputStyles = {
+    display,
+    flexDirection,
+    justifyContent,
+    alignItems,
+    minHeight,
+    maxHeight,
+    height,
+    minWidth,
+    maxWidth,
+    width,
+    background,
+    margin: `${margin}px`,
+    padding: `${padding}px`,
+  };
   return (
     <MaterialButton
       ref={(ref) => connect(drag(ref))}
-      style={{ margin: "5px" }}
+      style={inputStyles}
       size={size}
       variant={variant}
       color={color}
@@ -24,6 +59,7 @@ const Button = ({ size, variant, color, text }) => {
 };
 
 const ButtonDefaultProps = {
+  margin: "5px",
   size: "small",
   variant: "contained",
   color: "primary",

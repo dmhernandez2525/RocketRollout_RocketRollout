@@ -1,8 +1,5 @@
 import React from "react";
-import { Slider } from "@material-ui/core";
 import { useNode, useEditor } from "@craftjs/core";
-import { FormControl, FormLabel } from "@material-ui/core";
-import ColorPicker from "material-ui-color-picker";
 
 import ComponentSpecific from "../../StylingSettings/@ComponentSpecific/ComponentSpecific";
 import Default from "../../StylingSettings/@Default/Default";
@@ -27,34 +24,15 @@ const ContainerSettings = () => {
       <div>this is the root container, please select a child component</div>
     );
   } else {
-    componentSpecific = (
+    componentSpecific = <div></div>;
+    display = (
       <div>
-        <FormControl fullWidth={true} margin="normal" component="fieldset">
-          <FormLabel component="legend">Background</FormLabel>
-          <ColorPicker
-            value={background}
-            onChange={(color) => {
-              setProp((props) => (props.background = color));
-            }}
-          />
-        </FormControl>
-        <FormControl fullWidth={true} margin="normal" component="fieldset">
-          <FormLabel component="legend">Padding</FormLabel>
-          <Slider
-            defaultValue={padding}
-            onChange={(_, value) => setProp((props) => (props.padding = value))}
-          />
-        </FormControl>
+        <ComponentSpecific change={componentSpecific} name="Container" />
+        <Default />
       </div>
     );
-    display = (
-    <div>
-      <ComponentSpecific change={componentSpecific} name="Container" />
-      <Default />
-    </div>)
   }
 
- 
   return display;
 };
 
