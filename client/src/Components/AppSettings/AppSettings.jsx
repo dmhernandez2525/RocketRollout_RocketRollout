@@ -2,19 +2,48 @@ import React, { useState } from "react";
 import { useEditor } from "@craftjs/core";
 import { Input, DryButton } from "@comfort-order/dry";
 
-import { makeApp } from "../../utils/apiCalls";
+import { makeApp, makeComponent } from "../../utils/apiCalls";
 
 import "./AppSettings.scss";
 
 const AppSettings = () => {
   const [componentName, setComponentName] = useState("");
   const [applicationName, setApplicationName] = useState("");
+  const [message, setMessage] = useState("");
 
   const { query } = useEditor();
   const jsonState = () => query.serialize();
 
   const handleAppServerCall = async () => {
-    let data = await makeApp(componentName, applicationName, jsonState());
+    setMessage("Application is being created");
+    let data = await makeApp(applicationName);
+    let component;
+    if (data.data.includes("Success")) {
+      alert("success");
+      setMessage("Component is being created");
+      component = await makeComponent(
+        componentName,
+        applicationName,
+        jsonState()
+      );
+      if (component.data === "Component Created") {
+        alert("Component Created");
+      }
+    } else if (data.data === "Application already exists") {
+      alert("Application already exists");
+      setMessage("Component is being created");
+      component = await makeComponent(
+        componentName,
+        applicationName,
+        jsonState()
+      );
+      if (component.data === "Component Created") {
+        alert("Component Created");
+      }
+    } else {
+      alert("error");
+    }
+    setMessage("");
   };
   return (
     <div className="parse">
@@ -39,6 +68,7 @@ const AppSettings = () => {
         text="Make Applaction"
         className="btn btn-animated parse__button "
       />
+      <div>{message}</div>
     </div>
   );
 };

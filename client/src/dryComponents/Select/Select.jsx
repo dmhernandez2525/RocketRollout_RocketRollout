@@ -1,11 +1,11 @@
 import React from "react";
-import { Header1 } from "@comfort-order/dry";
+import { Select as DrySelect } from "@comfort-order/dry";
 import { useNode } from "@craftjs/core";
-import Header1Settings from "./Header1Settings";
+import SelectSettings from "./SelectSettings";
 
-import "./Header1.scss";
+import "./Select.scss";
 
-const Header = ({
+const Select = ({
   display,
   flexDirection,
   justifyContent,
@@ -45,20 +45,21 @@ const Header = ({
 
   return (
     <div ref={(ref) => connect(drag(ref))} style={inputStyles}>
-      <Header1 />
+      <DrySelect label="hi" />
     </div>
   );
 };
 
-const header1DefaultProps = {
+const SelectDefaultProps = {
   background: "#ffffff",
   padding: 3,
+  width: "50%",
 };
 
-Header.craft = {
-  defaultProps: header1DefaultProps,
+Select.craft = {
+  defaultProps: SelectDefaultProps,
   related: {
-    settings: Header1Settings,
+    settings: SelectSettings,
   },
 };
-export default Header;
+export default Select;

@@ -5,9 +5,9 @@ import Default from "../../StylingSettings/@Default/Default";
 
 import { useNode } from "@craftjs/core";
 
-import "./Header1.scss";
+import "./Select.scss";
 
-const Header1Settings = () => {
+const SelectSettings = () => {
   const { background, padding, setProp } = useNode((node) => ({
     background: node.data.props.background,
     padding: node.data.props.padding,
@@ -17,10 +17,10 @@ const Header1Settings = () => {
 
   return (
     <div>
-      <ComponentSpecific change={componentSpecific} name="Header1" />
+      <ComponentSpecific change={componentSpecific} name="Select" />
       <Default />
     </div>
   );
 };
 
-export default Header1Settings;
+export default SelectSettings;

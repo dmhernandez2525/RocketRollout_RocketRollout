@@ -3,11 +3,16 @@ import Card from "./Card/Card"
 import Container from "./Container/Container"
 import Text from "./Text/Text"
 import Header1 from "./Header1/Header1"
+import Select from "./Select/Select"
+import ImageCarousel from "./ImageCarousel/ImageCarousel"
 
 export {
     Button,
     Card,
     Container,
     Text,
-    Header1
+    Header1,
+    Select,
+    ImageCarousel,
+
 }
