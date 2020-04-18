@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useEditor } from "@craftjs/core";
 import { Input, DryButton } from "@comfort-order/dry";
 
-import { makeApp } from "../../utils/apiCalls";
+import { makeApp,makeComponent } from "../../utils/apiCalls";
 
 import "./AppSettings.scss";
 
@@ -16,11 +16,16 @@ const AppSettings = () => {
 
   const handleAppServerCall = async () => {
     setMessage("Application is being created")
-    let data = await makeApp(componentName, applicationName, jsonState());
+    let data = await makeApp(applicationName);
+    let component;
     if(data.data.includes("Success")){
       alert("success")
+      setMessage("Component is being created")
+      component = await makeComponent(componentName, jsonState())
     }else if(data.data === "Application already exists"){
       alert("Application already exists")
+      setMessage("Component is being created")
+      component = await makeComponent(componentName, jsonState())
     }else{
       alert("error")
     }
