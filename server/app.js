@@ -17,8 +17,10 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 app.post('/makeApplication',   async (req, res) =>  {
     const {componentName,applicationName,jsonData} = req.body;
-    await renderingEngine(componentName,applicationName,jsonData)
-    res.send(renderingEngine(componentName))
+    const mes = await renderingEngine(componentName,applicationName,jsonData)
+    console.log(mes)
+    console.log("done")
+    res.send(mes)
   })
 
 

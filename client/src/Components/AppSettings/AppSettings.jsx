@@ -9,12 +9,22 @@ import "./AppSettings.scss";
 const AppSettings = () => {
   const [componentName, setComponentName] = useState("");
   const [applicationName, setApplicationName] = useState("");
+  const [message, setMessage] = useState("");
 
   const { query } = useEditor();
   const jsonState = () => query.serialize();
 
   const handleAppServerCall = async () => {
+    setMessage("Application is being created")
     let data = await makeApp(componentName, applicationName, jsonState());
+    if(data.data.includes("Success")){
+      alert("success")
+    }else if(data.data === "Application already exists"){
+      alert("Application already exists")
+    }else{
+      alert("error")
+    }
+    setMessage("")
   };
   return (
     <div className="parse">
@@ -39,6 +49,7 @@ const AppSettings = () => {
         text="Make Applaction"
         className="btn btn-animated parse__button "
       />
+      <div>{message}</div>
     </div>
   );
 };

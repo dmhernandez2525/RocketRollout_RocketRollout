@@ -1,8 +1,8 @@
 const createApp = require("./createApp");
 
-const renderingEngine = (componentName,applicationName,jsonData) => {
-    createApp(applicationName)
-    return componentName
+const renderingEngine = async (componentName,applicationName,jsonData) => {
+    const mes = await createApp(applicationName)
+    return mes
 }
 
 
