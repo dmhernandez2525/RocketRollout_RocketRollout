@@ -1,7 +1,9 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
+const renderingEngine = require("./renderingEngine");
 const app = express();
+
 
 
 const corsOptions = {
@@ -13,9 +15,10 @@ app.use(cors(corsOptions));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-app.post('/makeApplication',  (req, res) =>  {
-    console.log("hey there")
-    res.send('hi')
+app.post('/makeApplication',   async (req, res) =>  {
+    const {componentName,applicationName,jsonData} = req.body;
+    await renderingEngine(componentName,applicationName,jsonData)
+    res.send(renderingEngine(componentName))
   })
 
 
