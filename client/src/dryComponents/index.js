@@ -4,6 +4,7 @@ import Container from "./Container/Container"
 import Text from "./Text/Text"
 import Header1 from "./Header1/Header1"
 import Select from "./Select/Select"
+import ImageCarousel from "./ImageCarousel/ImageCarousel"
 
 export {
     Button,
@@ -11,5 +12,7 @@ export {
     Container,
     Text,
     Header1,
-    Select
+    Select,
+    ImageCarousel,
+
 }
