@@ -22,7 +22,7 @@
     "react-scripts": "3.4.1"
   },
   "scripts": {
-    "pretty": "prettier --write \"./**/*.{jsx,scss}\"",
+    "pretty": "prettier --write \"./**/*.{jsx,scss,mjs}\"",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

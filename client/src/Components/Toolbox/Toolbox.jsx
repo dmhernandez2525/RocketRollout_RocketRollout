@@ -1,7 +1,15 @@
 import React from "react";
 import { Button as MaterialButton } from "@material-ui/core";
 import { Canvas, useEditor } from "@craftjs/core";
-import { Container, Button, Card, Text, Header1,Select,ImageCarousel } from "../../dryComponents";
+import {
+  Container,
+  Button,
+  Card,
+  Text,
+  Header1,
+  Select,
+  ImageCarousel,
+} from "../../dryComponents";
 
 import "./Toolbox.scss";
 

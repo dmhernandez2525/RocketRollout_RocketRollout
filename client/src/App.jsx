@@ -2,7 +2,15 @@ import React from "react";
 import { RenderNode } from "./Components/RenderNode/RenderNode";
 import { Editor, Frame, Canvas } from "@craftjs/core";
 
-import { Container, Button, Card, Text, Header1,Select,ImageCarousel } from "./dryComponents";
+import {
+  Container,
+  Button,
+  Card,
+  Text,
+  Header1,
+  Select,
+  ImageCarousel,
+} from "./dryComponents";
 import LeftDrawer from "./Components/LeftDrawer/LeftDrawer";
 import RightDrawer from "./Components/RightDrawer/RightDrawer";
 import { Topbar } from "./Components/Topbar/Topbar";
@@ -19,7 +27,15 @@ const App = () => {
           success: "#2d9d78",
           error: "#e34850",
         }}
-        resolver={{ Card, Button, Text, Container, Header1,Select,ImageCarousel }}
+        resolver={{
+          Card,
+          Button,
+          Text,
+          Container,
+          Header1,
+          Select,
+          ImageCarousel,
+        }}
         onRender={RenderNode}
       >
         <div>

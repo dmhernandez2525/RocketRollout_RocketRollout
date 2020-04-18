@@ -45,7 +45,7 @@ const Select = ({
 
   return (
     <div ref={(ref) => connect(drag(ref))} style={inputStyles}>
-      <DrySelect label="hi"/>
+      <DrySelect label="hi" />
     </div>
   );
 };

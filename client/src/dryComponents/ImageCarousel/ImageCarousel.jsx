@@ -43,23 +43,29 @@ const ImageCarousel = ({
     padding: `${padding}px`,
   };
 
-  const  slides = {
-        slide1: {
-            picUrl:"https://files.slack.com/files-pri/TL86V04VD-F011FMTHEAY/hero.jpg",
-            title: "Hey",
-            detail: "Curabitur eu eros et risus rutrum elementum.Phasellus a quam lobortis magna viverra tempus.Sed dictum nibh porttitor aliquet pulvinar.Pellentesque vestibulum erat eu ex laoreet volutpat."
-        },
-        slide2: {
-            picUrl:"https://files.slack.com/files-pri/TL86V04VD-F011AGVNC2V/comfortorderlogo.png",
-            title: "Hey",
-            detail: "Curabitur eu eros et risus rutrum elementum.Phasellus a quam lobortis magna viverra tempus.Sed dictum nibh porttitor aliquet pulvinar.Pellentesque vestibulum erat eu ex laoreet volutpat."
-        },
-        slide3: {
-            picUrl:"https://image.shutterstock.com/z/stock-photo-a-deer-in-the-colors-of-a-foggy-morning-1508990603.jpg",
-            title: "Hey",
-            detail: "Curabitur eu eros et risus rutrum elementum.Phasellus a quam lobortis magna viverra tempus.Sed dictum nibh porttitor aliquet pulvinar.Pellentesque vestibulum erat eu ex laoreet volutpat."
-        }
-    }
+  const slides = {
+    slide1: {
+      picUrl:
+        "https://files.slack.com/files-pri/TL86V04VD-F011FMTHEAY/hero.jpg",
+      title: "Hey",
+      detail:
+        "Curabitur eu eros et risus rutrum elementum.Phasellus a quam lobortis magna viverra tempus.Sed dictum nibh porttitor aliquet pulvinar.Pellentesque vestibulum erat eu ex laoreet volutpat.",
+    },
+    slide2: {
+      picUrl:
+        "https://files.slack.com/files-pri/TL86V04VD-F011AGVNC2V/comfortorderlogo.png",
+      title: "Hey",
+      detail:
+        "Curabitur eu eros et risus rutrum elementum.Phasellus a quam lobortis magna viverra tempus.Sed dictum nibh porttitor aliquet pulvinar.Pellentesque vestibulum erat eu ex laoreet volutpat.",
+    },
+    slide3: {
+      picUrl:
+        "https://image.shutterstock.com/z/stock-photo-a-deer-in-the-colors-of-a-foggy-morning-1508990603.jpg",
+      title: "Hey",
+      detail:
+        "Curabitur eu eros et risus rutrum elementum.Phasellus a quam lobortis magna viverra tempus.Sed dictum nibh porttitor aliquet pulvinar.Pellentesque vestibulum erat eu ex laoreet volutpat.",
+    },
+  };
 
   return (
     <div ref={(ref) => connect(drag(ref))} style={inputStyles}>
@@ -71,7 +77,7 @@ const ImageCarousel = ({
 const ImageCarouselDefaultProps = {
   background: "#ffffff",
   padding: 3,
-  width:"1000px"
+  width: "1000px",
 };
 
 ImageCarousel.craft = {
