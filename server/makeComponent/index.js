@@ -2,7 +2,7 @@
 
 
 
-const makeComponent =(componentName,jsonData) =>{
+const makeComponent =(componentName,applicationName,jsonData) =>{
     return "asdf"
 };
 

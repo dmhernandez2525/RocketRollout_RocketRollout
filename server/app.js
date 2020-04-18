@@ -25,8 +25,8 @@ app.post('/makeApplication',   async (req, res) =>  {
   })
 
 app.post('/makeComponent', async (req, res) =>  {
-    const {componentName,jsonData} = req.body;
-    const mes = await makeComponent(componentName,jsonData)
+    const {componentName,applicationName,jsonData} = req.body;
+    const mes = await makeComponent(componentName,applicationName,jsonData)
     console.log(mes)
     res.send(mes)
   })

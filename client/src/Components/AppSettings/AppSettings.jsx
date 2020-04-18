@@ -21,11 +21,11 @@ const AppSettings = () => {
     if(data.data.includes("Success")){
       alert("success")
       setMessage("Component is being created")
-      component = await makeComponent(componentName, jsonState())
+      component = await makeComponent(componentName, applicationName, jsonState())
     }else if(data.data === "Application already exists"){
       alert("Application already exists")
       setMessage("Component is being created")
-      component = await makeComponent(componentName, jsonState())
+      component = await makeComponent(componentName, applicationName, jsonState())
     }else{
       alert("error")
     }
