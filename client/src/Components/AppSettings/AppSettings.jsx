@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useEditor } from "@craftjs/core";
 import { Input, DryButton } from "@comfort-order/dry";
 
-import { makeApp,makeComponent } from "../../utils/apiCalls";
+import { makeApp, makeComponent } from "../../utils/apiCalls";
 
 import "./AppSettings.scss";
 
@@ -15,21 +15,35 @@ const AppSettings = () => {
   const jsonState = () => query.serialize();
 
   const handleAppServerCall = async () => {
-    setMessage("Application is being created")
+    setMessage("Application is being created");
     let data = await makeApp(applicationName);
     let component;
-    if(data.data.includes("Success")){
-      alert("success")
-      setMessage("Component is being created")
-      component = await makeComponent(componentName, applicationName, jsonState())
-    }else if(data.data === "Application already exists"){
-      alert("Application already exists")
-      setMessage("Component is being created")
-      component = await makeComponent(componentName, applicationName, jsonState())
-    }else{
-      alert("error")
+    if (data.data.includes("Success")) {
+      alert("success");
+      setMessage("Component is being created");
+      component = await makeComponent(
+        componentName,
+        applicationName,
+        jsonState()
+      );
+      if (component.data === "Component Created") {
+        alert("Component Created");
+      }
+    } else if (data.data === "Application already exists") {
+      alert("Application already exists");
+      setMessage("Component is being created");
+      component = await makeComponent(
+        componentName,
+        applicationName,
+        jsonState()
+      );
+      if (component.data === "Component Created") {
+        alert("Component Created");
+      }
+    } else {
+      alert("error");
     }
-    setMessage("")
+    setMessage("");
   };
   return (
     <div className="parse">

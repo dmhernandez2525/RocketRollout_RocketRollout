@@ -1,4 +1,3 @@
-
 const fs = require("fs");
 const component = require("./component.js");
 const styles = require("./styles.js");
@@ -10,41 +9,86 @@ const capitalizeWord = (word) => {
   return newWord.join("");
 };
 
-const handleError = (err) => {
-    if (err) throw err;
-    console.log("Saved!");
-  };
-
-const makeDirectory = ( applicationName, componentName, displayComponent, displayStyles, displayIndex, jsonData) => {
-
+const makeDirectory = (
+  applicationName,
+  componentName,
+  displayComponent,
+  displayStyles,
+  displayIndex,
+  jsonData
+) => {
+  console.log("Make Component Start");
   const path = `../../../${applicationName}/src/components/${componentName}`;
-  fs.mkdirSync(path, { recursive: true });
-  fs.writeFile(`${path}/${componentName}.jsx`, `${displayComponent}`, handleError);
-  fs.writeFile(`${path}/${componentName}.scss`, `${displayStyles}`, handleError);
-  fs.writeFile(`${path}/index.js`, `${displayIndex}`, handleError);
 
+  return new Promise(async (resolve, reject) => {
+    try {
+      await new Promise((resolve, reject) => {
+        try {
+          fs.mkdirSync(path, { recursive: true });
+        } catch (error) {
+          resolve(error);
+        }
+        console.log("Component Directiory Created");
+        resolve("Saved");
+      });
+
+      await new Promise((resolve, reject) => {
+        fs.writeFile(
+          `${path}/${componentName}.jsx`,
+          `${displayComponent}`,
+          (err) => {
+            if (err) throw err;
+            console.log("Component.jsx Created");
+            resolve("Saved");
+          }
+        );
+      });
+
+      await new Promise((resolve, reject) => {
+        fs.writeFile(
+          `${path}/${componentName}.scss`,
+          `${displayStyles}`,
+          (err) => {
+            if (err) throw err;
+            console.log("Component.scss Created");
+            resolve("Saved!");
+          }
+        );
+      });
+
+      await new Promise((resolve, reject) => {
+        fs.writeFile(`${path}/index.js`, `${displayIndex}`, (err) => {
+          if (err) throw err;
+          console.log("index.js created");
+          resolve("Saved!");
+        });
+      });
+    } catch (error) {
+      resolve(error);
+    }
+    resolve("Component Created");
+  });
 };
 
-const makeComponent =(componentName,applicationName,jsonData) =>{
+const makeComponent = async (componentName, applicationName, jsonData) => {
+  const componentname = capitalizeWord(componentName);
 
-    const componentname = capitalizeWord(componentName);
-
-    const displayIndex = `
+  const displayIndex = `
     import  ${componentname} from "./${componentname}";
     export default ${componentname};
     `;
-    const displayComponent = component(componentname);
-    const displayStyles = styles();
+  const displayComponent = component(componentname);
+  const displayStyles = styles();
 
-    makeDirectory(
+  const message = await makeDirectory(
     applicationName,
     componentname,
     displayComponent,
     displayStyles,
     displayIndex,
     jsonData
-);
-    return "asdf"
+  );
+  return message;
 };
 
 module.exports = makeComponent;

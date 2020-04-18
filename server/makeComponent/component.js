@@ -1,5 +1,4 @@
 const component = (input) => {
-
   const displayComponent = `
     import React from "react";
     
@@ -19,4 +18,4 @@ const component = (input) => {
   return displayComponent;
 };
 
-module.exports =  component;
+module.exports = component;

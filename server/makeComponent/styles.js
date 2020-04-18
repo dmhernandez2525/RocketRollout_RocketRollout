@@ -2,4 +2,4 @@ const styles = () => {
   return ``;
 };
 
-module.exports =  styles;
+module.exports = styles;
