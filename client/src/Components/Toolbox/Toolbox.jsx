@@ -9,6 +9,7 @@ import {
   Header1,
   Select,
   ImageCarousel,
+  Icon,
 } from "../../dryComponents";
 
 import "./Toolbox.scss";
@@ -85,6 +86,16 @@ export const Toolbox = () => {
           variant="contained"
         >
           Select
+        </button>
+      </div>
+      <div>
+        <button
+          ref={(ref) =>
+            connectors.create(ref, <Canvas is={Icon} padding={20} />)
+          }
+          variant="contained"
+        >
+          Icon
         </button>
       </div>
     </div>

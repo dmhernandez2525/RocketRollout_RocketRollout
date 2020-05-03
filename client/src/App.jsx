@@ -10,6 +10,7 @@ import {
   Header1,
   Select,
   ImageCarousel,
+  Icon,
 } from "./dryComponents";
 import LeftDrawer from "./Components/LeftDrawer/LeftDrawer";
 import RightDrawer from "./Components/RightDrawer/RightDrawer";
@@ -35,6 +36,7 @@ const App = () => {
           Header1,
           Select,
           ImageCarousel,
+          Icon,
         }}
         onRender={RenderNode}
       >
