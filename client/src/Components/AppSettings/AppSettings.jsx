@@ -40,6 +40,8 @@ const AppSettings = () => {
       if (component.data === "Component Created") {
         alert("Component Created");
       }
+    } else if (component === undefined) {
+      setMessage("Application is being created");
     } else {
       alert("error");
     }
