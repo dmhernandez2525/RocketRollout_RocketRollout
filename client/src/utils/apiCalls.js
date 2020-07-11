@@ -3,8 +3,7 @@ import axios from "axios";
 export const makeApp = (applicationName) => {
   const apiEndPoint = "http://localhost:5000/makeApplication";
   const params = { applicationName };
-  const serverData = axios.post(apiEndPoint, params);
-  return serverData;
+  return axios.post(apiEndPoint, params);
 };
 
 export const makeComponent = (componentName, applicationName, jsonData) => {

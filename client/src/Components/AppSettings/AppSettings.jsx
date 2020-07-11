@@ -47,6 +47,7 @@ const AppSettings = () => {
     }
     setMessage("");
   };
+
   return (
     <div className="parse">
       <Input
@@ -65,11 +66,13 @@ const AppSettings = () => {
         value={applicationName}
         onChange={(e) => setApplicationName(e.target.value)}
       />
-      <DryButton
+      <button
         onClick={handleAppServerCall}
-        text="Make Applaction"
+        text=""
         className="btn btn-animated parse__button "
-      />
+      >
+        Make Applaction
+      </button>
       <div>{message}</div>
     </div>
   );

@@ -7,7 +7,6 @@ import "./LeftDrawer.scss";
 
 const LeftDrawer = () => {
   const [select, setSelect] = useState("toolbox");
-
   return (
     <div className="left-drawer">
       <div className="left-drawer__select-wrapper">

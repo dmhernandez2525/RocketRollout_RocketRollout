@@ -4,6 +4,12 @@ const { exec } = require("child_process");
 const createApp = (applicationName) => {
   const path = `../../../${applicationName}`;
   const filePath = `../../../${applicationName}/src`;
+  const displayIndex = ({ componentName }) => {
+    return `
+        import  ${componentName} from "./${componentName}";
+        export default ${componentName};
+        `;
+  };
   console.log("Make Application Start");
   if (!fs.existsSync(path)) {
     return new Promise(async (resolve, reject) => {
@@ -18,10 +24,11 @@ const createApp = (applicationName) => {
           });
         });
 
-        // TO DO: Add Pritter packege to package.json
+        // TO DO: Add Prettier package to package.json
         await new Promise((resolve, reject) => {
           exec(
-            `npm install --save-dev --save-exact prettier`,
+            `npm install prettier`,
+            { cwd: `${path}` },
             (error, stdout, stderr) => {
               if (error) {
                 console.warn(error);
@@ -30,20 +37,50 @@ const createApp = (applicationName) => {
             }
           );
         });
-        // TO DO: Add Pritter script to package.json
-        //
+
+        // TO DO: Add Prettier config
+        // TO DO: Add Prettier ignore
+
+        // TO DO: Add Prettier script to package.json
+        await new Promise(async (resolve, reject) => {
+          await fs.readFile(`${path}/package.json`, (error, file) => {
+            console.log("error", error);
+            console.log("file", file);
+            const jsonFileObject = JSON.parse(file);
+            jsonFileObject.scripts["pretty"] =
+              'prettier --write "./**/*.{jsx,scss,js}"';
+
+            fs.writeFile(
+              `${path}/package.json`,
+              JSON.stringify(jsonFileObject),
+              (err) => {
+                if (err) throw err;
+                console.log("Added Prettier to package.json");
+                resolve("Saved!");
+              }
+            );
+          });
+
+          console.log("Added Prettier to package.json");
+          resolve("Saved!");
+        });
 
         // TO DO: Add storybook
         // TO DO: Make sure it is installing it in the right directory
         //
         await new Promise((resolve, reject) => {
-          exec(`npx -p @storybook/cli sb init`, (error, stdout, stderr) => {
-            if (error) {
-              console.warn(error);
+          exec(
+            `npx -p @storybook/cli sb init`,
+            { cwd: `${path}` },
+            (error, stdout, stderr) => {
+              if (error) {
+                console.warn(error);
+              }
+              resolve(stdout ? stdout : stderr);
             }
-            resolve(stdout ? stdout : stderr);
-          });
+          );
         });
+        console.log("Add storybook Done");
 
         // Make Component Folder
         await new Promise((resolve, reject) => {
@@ -76,7 +113,7 @@ const createApp = (applicationName) => {
         await new Promise((resolve, reject) => {
           fs.writeFile(
             `${filePath}/components/index.js`,
-            `${displayIndex}`,
+            `${displayIndex("components")}`,
             (err) => {
               if (err) throw err;
               console.log("Component index.js created");
@@ -101,7 +138,7 @@ const createApp = (applicationName) => {
         await new Promise((resolve, reject) => {
           fs.writeFile(
             `${filePath}/pages/index.js`,
-            `${displayIndex}`,
+            `${displayIndex("Pages")}`,
             (err) => {
               if (err) throw err;
               console.log("Pages index.js created");
@@ -113,51 +150,41 @@ const createApp = (applicationName) => {
         // To Do: Make a dynamic App file generator
         // Rewrite App file
         await new Promise((resolve, reject) => {
-          fs.writeFile(`${filePath}/App.jsx`, `${displayComponent}`, (err) => {
-            if (err) throw err;
-            console.log("Component.jsx Created");
-            resolve("Saved");
-          });
-        });
-        // To Do: Make a dynamic App file generator
-        // Rewrite App file
-        await new Promise((resolve, reject) => {
-          fs.writeFile(`${filePath}/App.jsx`, `${displayComponent}`, (err) => {
-            if (err) throw err;
-            console.log("Component.jsx Created");
-            resolve("Saved");
-          });
-        });
-
-        // To Do: Make a dynamic App file generator
-        // Make App.jsx file
-        await new Promise((resolve, reject) => {
-          fs.writeFile(`${filePath}/App.jsx`, `${displayComponent}`, (err) => {
-            if (err) throw err;
-            console.log("Component.jsx Created");
-            resolve("Saved");
-          });
+          fs.writeFile(
+            `${filePath}/App.jsx`,
+            `${displayIndex("Pages")}`,
+            (err) => {
+              if (err) throw err;
+              console.log("Component.jsx Created");
+              resolve("Saved");
+            }
+          );
         });
 
         // To Do: Make a dynamic Scss file generator
         // Make App.scss file
         await new Promise((resolve, reject) => {
-          fs.writeFile(`${filePath}/App.scss`, `${displayComponent}`, (err) => {
+          fs.writeFile(`${filePath}/App.scss`, ``, (err) => {
             if (err) throw err;
             console.log("Component.jsx Created");
             resolve("Saved");
           });
         });
 
-        // TO DO: Run pritterer command
-        // Run pritterer command
+        // TO DO: Run Prettier command
+        // Run Prettier command
+
         await new Promise((resolve, reject) => {
-          exec(`npm run pretty`, (error, stdout, stderr) => {
-            if (error) {
-              console.warn(error);
+          exec(
+            `npm run pretty`,
+            { cwd: `${path}` },
+            (error, stdout, stderr) => {
+              if (error) {
+                console.warn(error);
+              }
+              resolve(stdout ? stdout : stderr);
             }
-            resolve(stdout ? stdout : stderr);
-          });
+          );
         });
       } catch (error) {
         resolve(error);
