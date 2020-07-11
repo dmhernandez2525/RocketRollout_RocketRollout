@@ -18,6 +18,10 @@ const makeDirectory = (
   displayIndex,
   jsonData
 ) => {
+  // To Do: Make markup
+  // To Do: Add Test files
+  // To Do: Add Storybook Files
+  // To Do: Add Readme
   console.log("Make Component Start");
   const path = `../../../${applicationName}/src/components/${componentName}`;
 
@@ -65,9 +69,7 @@ const makeDirectory = (
         });
       });
 
-      // TO DO: Run Prettier command
       // Run Prettier command
-
       await new Promise((resolve, reject) => {
         exec(`npm run pretty`, { cwd: `${path}` }, (error, stdout, stderr) => {
           if (error) {

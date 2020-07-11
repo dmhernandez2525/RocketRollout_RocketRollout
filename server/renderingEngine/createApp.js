@@ -24,7 +24,7 @@ const createApp = (applicationName) => {
           });
         });
 
-        // Delet App fieiles
+        // Delete App fillies
         await new Promise((resolve, reject) => {
           exec(
             `rm App.css App.js App.test.js`,
@@ -38,7 +38,7 @@ const createApp = (applicationName) => {
           );
         });
 
-        // TO DO: Add Prettier package to package.json
+        // Add Prettier package to package.json
         await new Promise((resolve, reject) => {
           exec(
             `npm install prettier`,
@@ -52,7 +52,7 @@ const createApp = (applicationName) => {
           );
         });
 
-        // TO DO: Add Prettier config
+        // Add Prettier config
         await new Promise((resolve, reject) => {
           fs.writeFile(
             `${path}/.prettierignore`,
@@ -71,7 +71,8 @@ const createApp = (applicationName) => {
             }
           );
         });
-        // TO DO: Add Prettier ignore
+
+        // Add Prettier ignore
         await new Promise((resolve, reject) => {
           fs.writeFile(
             `${path}/.prettierrc.js`,
@@ -90,7 +91,9 @@ const createApp = (applicationName) => {
             }
           );
         });
-        // TO DO: Add Prettier script to package.json
+
+        // Add Prettier script to package.json
+        // Add Test script to package.json
         await new Promise(async (resolve, reject) => {
           await fs.readFile(`${path}/package.json`, (error, file) => {
             console.log("error", error);
@@ -98,6 +101,8 @@ const createApp = (applicationName) => {
             const jsonFileObject = JSON.parse(file);
             jsonFileObject.scripts["pretty"] =
               'prettier --write "./**/*.{jsx,scss,js}"';
+            jsonFileObject.scripts["testC"] =
+              "npm test ----coverage --watchAll=false";
 
             fs.writeFile(
               `${path}/package.json`,
@@ -114,8 +119,7 @@ const createApp = (applicationName) => {
           resolve("Saved!");
         });
 
-        // TO DO: Add storybook
-        // TO DO: Make sure it is installing it in the right directory
+        // TO DO: Configure Story book
         //
         await new Promise((resolve, reject) => {
           exec(
@@ -129,7 +133,6 @@ const createApp = (applicationName) => {
             }
           );
         });
-        console.log("Add storybook Done");
 
         // Make Component Folder
         await new Promise((resolve, reject) => {
@@ -154,6 +157,11 @@ const createApp = (applicationName) => {
         });
 
         // TO DO: Add All CLI Files
+        //
+        //
+
+        // TO DO: Add Docker File
+        // TO DO: Add Docker Compose File
         //
         //
 
@@ -220,7 +228,6 @@ const createApp = (applicationName) => {
           });
         });
 
-        // TO DO: Run Prettier command
         // Run Prettier command
 
         await new Promise((resolve, reject) => {
