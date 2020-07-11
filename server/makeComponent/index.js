@@ -1,4 +1,5 @@
 const fs = require("fs");
+const { exec } = require("child_process");
 const component = require("./component.js");
 const styles = require("./styles.js");
 
@@ -61,6 +62,18 @@ const makeDirectory = (
           if (err) throw err;
           console.log("index.js created");
           resolve("Saved!");
+        });
+      });
+
+      // TO DO: Run Prettier command
+      // Run Prettier command
+
+      await new Promise((resolve, reject) => {
+        exec(`npm run pretty`, { cwd: `${path}` }, (error, stdout, stderr) => {
+          if (error) {
+            console.warn(error);
+          }
+          resolve(stdout ? stdout : stderr);
         });
       });
     } catch (error) {
