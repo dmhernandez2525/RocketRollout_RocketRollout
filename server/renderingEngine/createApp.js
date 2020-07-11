@@ -24,6 +24,20 @@ const createApp = (applicationName) => {
           });
         });
 
+        // Delet App fieiles
+        await new Promise((resolve, reject) => {
+          exec(
+            `rm App.css App.js App.test.js`,
+            { cwd: `${filePath}` },
+            (error, stdout, stderr) => {
+              if (error) {
+                console.warn(error);
+              }
+              resolve(stdout ? stdout : stderr);
+            }
+          );
+        });
+
         // TO DO: Add Prettier package to package.json
         await new Promise((resolve, reject) => {
           exec(
@@ -39,8 +53,43 @@ const createApp = (applicationName) => {
         });
 
         // TO DO: Add Prettier config
+        await new Promise((resolve, reject) => {
+          fs.writeFile(
+            `${path}/.prettierignore`,
+            `
+            # Ignore artifacts:
+            build
+            coverage
+            
+            # Ignore all HTML files:
+            *.html
+            `,
+            (err) => {
+              if (err) throw err;
+              console.log("Component.jsx Created");
+              resolve("Saved");
+            }
+          );
+        });
         // TO DO: Add Prettier ignore
-
+        await new Promise((resolve, reject) => {
+          fs.writeFile(
+            `${path}/.prettierrc.js`,
+            `
+            module.exports = {
+              trailingComma: "es5",
+              tabWidth: 4,
+              semi: false,
+              singleQuote: true,
+            };
+            `,
+            (err) => {
+              if (err) throw err;
+              console.log("Component.jsx Created");
+              resolve("Saved");
+            }
+          );
+        });
         // TO DO: Add Prettier script to package.json
         await new Promise(async (resolve, reject) => {
           await fs.readFile(`${path}/package.json`, (error, file) => {
