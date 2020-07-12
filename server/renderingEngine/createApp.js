@@ -1,6 +1,6 @@
 const fs = require("fs");
 const { exec } = require("child_process");
-
+const makeCli = require("../makeCli");
 const createApp = (applicationName) => {
   const path = `../../../${applicationName}`;
   const filePath = `../../../${applicationName}/src`;
@@ -60,7 +60,7 @@ const createApp = (applicationName) => {
             # Ignore artifacts:
             build
             coverage
-            
+
             # Ignore all HTML files:
             *.html
             `,
@@ -157,13 +157,15 @@ const createApp = (applicationName) => {
         });
 
         // TO DO: Add All CLI Files
-        //
+        await makeCli(applicationName);
         //
 
         // TO DO: Add Docker File
         // TO DO: Add Docker Compose File
         //
         //
+
+        // To DO: Add change log file
 
         // To Do: Make a dynamic index file generator
         // Make Component Index File
