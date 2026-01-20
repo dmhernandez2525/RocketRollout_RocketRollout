@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: rocketrollout
+    name: rocket-rollout-site
     env: static
     buildCommand: cd client && npm install && npm run build
     staticPublishPath: ./client/build
