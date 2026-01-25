@@ -15,37 +15,48 @@ const AppSettings = () => {
   const jsonState = () => query.serialize();
 
   const handleAppServerCall = async () => {
-    setMessage("Application is being created");
-    let data = await makeApp(applicationName);
-    let component;
-    if (data.data.includes("Success")) {
-      alert("success");
-      setMessage("Component is being created");
-      component = await makeComponent(
-        componentName,
-        applicationName,
-        jsonState()
-      );
-      if (component.data === "Component Created") {
-        alert("Component Created");
-      }
-    } else if (data.data === "Application already exists") {
-      alert("Application already exists");
-      setMessage("Component is being created");
-      component = await makeComponent(
-        componentName,
-        applicationName,
-        jsonState()
-      );
-      if (component.data === "Component Created") {
-        alert("Component Created");
-      }
-    } else if (component === undefined) {
+    try {
       setMessage("Application is being created");
-    } else {
-      alert("error");
+      let data = await makeApp(applicationName);
+
+      if (!data || !data.data) {
+        setMessage("Unable to connect to server. The backend API may be unavailable.");
+        return;
+      }
+
+      let component;
+      if (data.data.includes("Success")) {
+        alert("success");
+        setMessage("Component is being created");
+        component = await makeComponent(
+          componentName,
+          applicationName,
+          jsonState()
+        );
+        if (component?.data === "Component Created") {
+          alert("Component Created");
+        }
+      } else if (data.data === "Application already exists") {
+        alert("Application already exists");
+        setMessage("Component is being created");
+        component = await makeComponent(
+          componentName,
+          applicationName,
+          jsonState()
+        );
+        if (component?.data === "Component Created") {
+          alert("Component Created");
+        }
+      } else if (component === undefined) {
+        setMessage("Application is being created");
+      } else {
+        alert("error");
+      }
+      setMessage("");
+    } catch (error) {
+      console.error("API Error:", error);
+      setMessage("Unable to connect to server. The backend API may be unavailable.");
     }
-    setMessage("");
   };
 
   return (
