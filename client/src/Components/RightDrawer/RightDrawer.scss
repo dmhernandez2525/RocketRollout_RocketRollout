@@ -1,3 +1,13 @@
 .rDrawer {
   padding: 15px;
+  box-sizing: border-box;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+@media screen and (max-width: 768px) {
+  .rDrawer {
+    padding: 12px;
+    width: 100%;
+  }
 }
