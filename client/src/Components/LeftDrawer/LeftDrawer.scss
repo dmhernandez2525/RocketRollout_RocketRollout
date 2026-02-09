@@ -19,3 +19,24 @@
     width: 250px;
   }
 }
+
+@media screen and (max-width: 768px) {
+  .left-drawer {
+    flex-direction: column;
+
+    &__select-wrapper {
+      flex-direction: row;
+      width: 100%;
+      height: auto;
+
+      button {
+        flex: 1;
+        padding: 10px;
+      }
+    }
+
+    &__function--active {
+      width: 100%;
+    }
+  }
+}
